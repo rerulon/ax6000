@@ -1,9 +1,19 @@
 #!/bin/sh
 # Скрипт восстановления среды после апгрейда OpenWrt 25.12+
+echo "=== Обновляем список пакетов ==="
+apk update
 
-echo "=== [1-2/8] Скачивание и распаковка архива payload.tar ==="
+echo "=== Апгрейдим все пакеты ==="
+apk upgrade
+
+echo "=== [0/8] Устанавливаем нужные для работы пакеты ==="
+apk add --no-cache jq openssh-sftp-server coreutils-timeout
+
+echo "=== [1/8] Скачивание и распаковка архива payload.tar ==="
 mkdir -p /tmp/rool
 wget -qO /tmp/rool/payload.tar https://github.com/rerulon/ax6000/raw/refs/heads/main/payload.tar
+
+echo "=== [2/8] Распаковка архива payload.tar ==="
 tar -xf /tmp/rool/payload.tar -C /tmp/rool/
 
 echo "=== [3/8] Копирование profile и banner в /etc ==="
