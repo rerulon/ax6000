@@ -7,7 +7,7 @@ echo "=== Апгрейдим все пакеты ==="
 apk upgrade
 
 echo "=== [0/8] Устанавливаем нужные для работы пакеты ==="
-apk add --no-cache jq openssh-sftp-server coreutils-timeout
+apk add --no-cache jq openssh-sftp-server coreutils-timeout curl
 
 echo "=== [1/8] Скачивание и распаковка архива payload.tar ==="
 mkdir -p /tmp/rool
