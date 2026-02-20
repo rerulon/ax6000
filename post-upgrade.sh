@@ -54,7 +54,7 @@ echo "=== [7/8] Очистка временной папки ==="
 rm -rf /tmp/rool
 
 echo "=== [8/8] Установка podkop ==="
-# Скачиваем и сразу запускаем установщик podkop (совместимо с ash)
-wget -qO - https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh | sh
+# Скачиваем и сразу запускаем установщик podkop
+sh <(wget -O - https://raw.githubusercontent.com/itdoginfo/podkop/refs/heads/main/install.sh)
 
 echo "=== Восстановление успешно завершено! ==="
